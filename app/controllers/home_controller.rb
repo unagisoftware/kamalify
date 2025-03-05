@@ -12,16 +12,16 @@ class HomeController < ApplicationController
       servers: Array("192.168.0.1"),
       registry: {
         username: "registry-user-name",
-        password: ["KAMAL_REGISTRY_PASSWORD"]
+        password: [ "KAMAL_REGISTRY_PASSWORD" ]
       },
       builder: {
         arch: "amd64"
       },
       env: {
-        secret: ["RAILS_MASTER_KEY"]
+        secret: [ "RAILS_MASTER_KEY" ]
       }
     }
 
-    yaml_data.deep_stringify_keys.to_yaml(indentation: 2).sub(/\A---\n/, '')
+    yaml_data.deep_stringify_keys.to_yaml(indentation: 2).sub(/\A---\n/, "")
   end
 end
