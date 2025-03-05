@@ -1,0 +1,7 @@
+<%= turbo_frame_tag 'yaml_preview' do %>
+  <div data-controller="highlight">
+    <pre class="bg-gray-100 p-4 rounded overflow-auto">
+      <code class="yaml hljs"><%= @yaml_output %></code>
+    </pre>
+  </div>
+<% end %>

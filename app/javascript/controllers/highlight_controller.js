@@ -6,8 +6,13 @@ hljs.registerLanguage("yaml", yaml);
 
 export default class extends Controller {
   connect() {
-    this.element.querySelectorAll("pre code").forEach((block) => {
-      hljs.highlightElement(block);
+    this.highlightCode();
+  }
+
+  highlightCode() {
+    console.log("highlight triggered");
+    document.querySelectorAll("code.yaml").forEach((el) => {
+      hljs.highlightElement(el);
     });
   }
 }
