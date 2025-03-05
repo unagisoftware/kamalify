@@ -1,26 +1,33 @@
-<%= form_with url: yaml_preview_path, method: :post, data: { controller: "autosubmit", action: "input->autosubmit#submit", turbo_frame: "yaml_preview" } do |f| %>
-  <div class="mb-4">
-    <%= f.label :name, "Nombre:", class: "block mb-2" %>
-    <%= f.text_field :name, class: "w-full p-2 border rounded" %>
-  </div>
+<div class="grid grid-cols-2 gap-6">
+  <%= form_with url: yaml_preview_path, method: :post, data: { controller: "autosubmit", action: "input->autosubmit#submit", turbo_frame: "yaml_preview" } do |f| %>
+    <div class="border-b border-gray-900/10 p-6">
+      <div class="mb-4">
+        <%= f.label :name, "Service name:", class: "block mb-1 text-sm" %>
+        <%= f.text_field :name, class: "w-full p-2 border rounded" %>
+      </div>
 
-  <div class="mb-4">
-    <%= f.label :age, "Edad:", class: "block mb-2" %>
-    <%= f.number_field :age, class: "w-full p-2 border rounded" %>
-  </div>
+      <div class="mb-4">
+        <%= f.label :docker_image, "Docker image:", class: "block mb-1 text-sm" %>
+        <%= f.text_field :docker_image, class: "w-full p-2 border rounded" %>
+      </div>
 
-  <div class="mb-4">
-    <%= f.label :country, "País:", class: "block mb-2" %>
-    <%= f.select :country, ["Argentina", "México", "España"], {}, class: "w-full p-2 border rounded" %>
-  </div>
-<% end %>
+      <div class="mb-4">
+        <%= f.label :server, "Server IP address:", class: "block mb-1 text-sm" %>
+        <%= f.text_field :server, class: "w-full p-2 border rounded" %>
+      </div>
 
+      <div class="mb-4">
+        <%= f.label :arch, "Architecture:", class: "block mb-1 text-sm" %>
+        <%= f.select :arch, ["amd64", "arm64"], {}, class: "w-full p-2 border rounded" %>
+      </div>
+    </div>
+  <% end %>
 
-<h2 class="text-xl font-semibold mb-4">YAML Generado</h2>
-<%= turbo_frame_tag "yaml_preview" do %>
-  <div data-controller="highlight">
-    <pre class="bg-gray-100 p-4 rounded overflow-auto">
-      <code class="yaml hljs"># Completa el formulario...</code>
-    </pre>
-  </div>
-<% end %>
+  <%= turbo_frame_tag "yaml_preview" do %>
+    <div data-controller="highlight">
+      <pre class="p-4 rounded overflow-auto">
+        <code class="yaml hljs"><%= @default_yaml %></code>
+      </pre>
+    </div>
+  <% end %>
+</div>
