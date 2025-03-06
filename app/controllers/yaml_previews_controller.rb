@@ -2,6 +2,6 @@
 
 class YamlPreviewsController < ApplicationController
   def create
-    @yaml_output = YamlCreator.new(params).call
+    @yaml_document = YamlDocument.new(params)
   end
 end

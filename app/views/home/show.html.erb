@@ -1,5 +1,5 @@
 <div class="grid grid-cols-2 gap-6">
-  <%= form_with url: yaml_preview_path, method: :post, data: { controller: "autosubmit", action: "input->autosubmit#submit", turbo_frame: "yaml_preview" } do |f| %>
+  <%= form_with url: yaml_preview_path, method: :get, data: { controller: "autosubmit", action: "input->autosubmit#submit", turbo_frame: "yaml_preview" } do |f| %>
     <div class="border-b border-gray-900/10 p-6">
       <div class="mb-4">
         <%= f.label :name, "Service name:", class: "block mb-1 text-sm" %>
@@ -23,11 +23,5 @@
     </div>
   <% end %>
 
-  <%= turbo_frame_tag "yaml_preview" do %>
-    <div data-controller="highlight">
-      <pre class="p-4 rounded overflow-auto">
-        <code class="yaml hljs"><%= @default_yaml %></code>
-      </pre>
-    </div>
-  <% end %>
+  <%= turbo_frame_tag "yaml_preview", src: yaml_preview_path, loading: :lazy %>
 </div>

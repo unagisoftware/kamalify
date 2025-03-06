@@ -5,14 +5,9 @@ import yaml from "highlight-yaml";
 hljs.registerLanguage("yaml", yaml);
 
 export default class extends Controller {
-  connect() {
-    this.highlightCode();
-  }
+  static targets = ["code"]
 
-  highlightCode() {
-    console.log("highlight triggered");
-    document.querySelectorAll("code.yaml").forEach((el) => {
-      hljs.highlightElement(el);
-    });
+  connect() {
+    hljs.highlightElement(this.codeTarget)
   }
 }

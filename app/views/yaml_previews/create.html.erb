@@ -1,7 +1,7 @@
 <%= turbo_frame_tag 'yaml_preview' do %>
   <div data-controller="highlight">
     <pre class="p-4 rounded overflow-auto">
-      <code class="yaml hljs"><%= @yaml_output %></code>
+      <code data-highlight-target="code" class="yaml hljs"><%= @yaml_document.output %></code>
     </pre>
   </div>
 <% end %>
