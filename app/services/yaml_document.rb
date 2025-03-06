@@ -9,7 +9,7 @@ class YamlDocument
 
   def output
     return default_yaml if @yaml_params.nil?
-    
+
     yaml_data = {
       service: @yaml_params[:name].presence || "your_service",
       image: @yaml_params[:docker_image].presence || "image/your_service",
