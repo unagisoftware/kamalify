@@ -4,12 +4,10 @@ class YamlDocument
   require "yaml"
 
   def initialize(yaml_params = nil)
-    @yaml_params = yaml_params
+    @yaml_params = yaml_params || default_params
   end
 
   def output
-    return default_yaml if @yaml_params.nil?
-
     yaml_data = {
       service: @yaml_params[:name].presence || "your_service",
       image: @yaml_params[:docker_image].presence || "image/your_service",
@@ -31,8 +29,8 @@ class YamlDocument
 
   private
 
-  def default_yaml
-    yaml_data = {
+  def default_params
+    {
       service: "your_service",
       image: "image/your_service",
       servers: Array("192.168.0.1"),
@@ -47,7 +45,5 @@ class YamlDocument
         secret: [ "RAILS_MASTER_KEY" ]
       }
     }
-
-    yaml_data.deep_stringify_keys.to_yaml(indentation: 2)
   end
 end
