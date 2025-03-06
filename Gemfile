@@ -5,9 +5,12 @@ gem "importmap-rails"
 gem "jbuilder"
 gem "kamal", require: false
 gem "propshaft"
+gem "pry", "~> 0.15.0"
 gem "puma", ">= 5.0"
 gem "rails", "~> 8.0.1"
 gem "stimulus-rails"
+gem "tailwindcss-rails", "~> 4.2"
+gem "tailwindcss-ruby", "~> 4.0"
 gem "thruster", require: false
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
