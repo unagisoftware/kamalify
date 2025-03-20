@@ -9,11 +9,11 @@ class YamlPreviewsController < ApplicationController
 
   def yaml_params
     params.permit(
-      :name, 
-      :docker_image, 
-      :arch,
-      registry: [:username, :password],
-      servers: [:host, { jobs: [:host, :cmd] }]
+      :name,
+      :docker_image,
+      arch: [ :arch ],
+      registry: [ :username, :password ],
+      servers: [ :host, { jobs: [ :host, :cmd ] } ]
     )
   end
 end
