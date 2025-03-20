@@ -11,7 +11,7 @@ class YamlDocument
       image: @params[:docker_image].presence || "image/your_service",
       servers: ServersConfig.new(@params[:servers]).to_h,
       registry: RegistryConfig.new(@params[:registry]).to_h,
-      builder: BuilderConfig.new(@params[:arch]).to_h,
+      builder: BuilderConfig.new(@params[:builder]).to_h,
       env: EnvConfig.new(@params[:env]).to_h
     }
 
