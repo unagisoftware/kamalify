@@ -19,8 +19,13 @@ group :development, :test do
   gem "brakeman", require: false
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "rubocop-rails-omakase", require: false
+  gem "rspec-rails"
 end
 
 group :development do
   gem "web-console"
+end
+
+group :test do
+  gem "shoulda-matchers", "~> 5.3"
 end
