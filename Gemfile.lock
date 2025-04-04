@@ -83,6 +83,9 @@ GEM
     brakeman (7.0.0)
       racc
     builder (3.3.0)
+    bundler-audit (0.9.1)
+      bundler (>= 1.2.0, < 3)
+      thor (~> 1.0)
     coderay (1.1.3)
     concurrent-ruby (1.3.5)
     connection_pool (2.5.0)
@@ -343,6 +346,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   brakeman
+  bundler-audit (~> 0.9.1)
   debug
   importmap-rails
   jbuilder
