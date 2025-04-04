@@ -6,12 +6,12 @@ class BaseConfig
   end
 
   def to_h
-    defaults.deep_merge(@params)
+    defaults.deep_merge(values.compact)
   end
 
   private
 
-  def defaults
+  def values
     {}
   end
 end

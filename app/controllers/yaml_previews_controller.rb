@@ -13,7 +13,7 @@ class YamlPreviewsController < ApplicationController
       :docker_image,
       builder: [ :arch ],
       registry: [ :username, :password ],
-      servers: [ :host, { jobs: [ :host, :cmd ] } ]
+      servers: [ :host, { jobs: [ :enabled, :host, :cmd ] } ]
     )
   end
 end
