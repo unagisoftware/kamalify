@@ -8,6 +8,6 @@ class EnvConfig < BaseConfig
   end
 
   def defaults
-    { secret: [ "RAILS_MASTER_KEY" ] }
+    { secrets: [ "RAILS_MASTER_KEY" ] }
   end
 end
