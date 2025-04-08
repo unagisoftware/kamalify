@@ -3,6 +3,10 @@
 class EnvConfig < BaseConfig
   private
 
+  def values
+    {}
+  end
+
   def defaults
     { secret: [ "RAILS_MASTER_KEY" ] }
   end

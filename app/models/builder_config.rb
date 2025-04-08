@@ -3,6 +3,10 @@
 class BuilderConfig < BaseConfig
   private
 
+  def values
+    {}
+  end
+
   def defaults
     { arch: "amd64" }
   end

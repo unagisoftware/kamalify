@@ -3,6 +3,10 @@
 class RegistryConfig < BaseConfig
   private
 
+  def values
+    {}
+  end
+
   def defaults
     { username: "registry-user-name", password: [ "KAMAL_REGISTRY_PASSWORD" ] }
   end
