@@ -2,17 +2,17 @@
 
 class YamlDocument
   def initialize(params = {})
-    @params = params || {}
+    @params = params
   end
 
   def output
     yaml_data = {
       service: @params[:name].presence || "your_service",
       image: @params[:docker_image].presence || "image/your_service",
-      servers: ServersConfig.new(@params[:servers]).to_h,
-      registry: RegistryConfig.new(@params[:registry]).to_h,
-      builder: BuilderConfig.new(@params[:builder]).to_h,
-      env: EnvConfig.new(@params[:env]).to_h
+      servers: ServersConfig.new(@params.fetch(:servers, {})).to_h,
+      registry: RegistryConfig.new(@params.fetch(:registry, {})).to_h,
+      builder: BuilderConfig.new(@params.fetch(:builder, {})).to_h,
+      env: EnvConfig.new(@params.fetch(:env, {})).to_h
     }
 
     yaml_data.deep_stringify_keys.to_yaml(indentation: 2)
