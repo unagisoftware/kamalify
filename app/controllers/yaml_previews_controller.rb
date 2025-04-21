@@ -11,8 +11,9 @@ class YamlPreviewsController < ApplicationController
     params.permit(
       :name,
       :docker_image,
-      builder: [ :arch ],
-      registry: [ :username, :password ],
+      builder: [ :arch, :remote ],
+      proxy: [ :app_port, { hosts: [], ssl: [ :enabled ] } ],
+      registry: [ :server, :username, :password ],
       servers: [ :host, { jobs: [ :enabled, :host, :cmd ] } ]
     )
   end
