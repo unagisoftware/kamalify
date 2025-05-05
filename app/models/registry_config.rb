@@ -26,6 +26,6 @@ class RegistryConfig < BaseConfig
   end
 
   def defaults
-    { username: "registry-user-name", password_env_var_name: [ "KAMAL_REGISTRY_PASSWORD" ] }
+    { username: "registry-user-name", password: [ "KAMAL_REGISTRY_PASSWORD" ] }
   end
 end
