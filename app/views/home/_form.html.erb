@@ -1,4 +1,7 @@
-<%= form_with url: yaml_preview_path, method: :get, data: { controller: "autosubmit", action: "input->autosubmit#submit", turbo_frame: "yaml_preview" } do |f| %>
+<%= form_with url: yaml_preview_path, method: :get, 
+    data: { controller: "autosubmit", action: "input->autosubmit#submit", turbo_frame: "yaml_preview" },
+    html: { autocomplete: "off" } do |f|
+%>
   <div class="border-b border-gray-900/10">
     <div class="mb-4">
       <%= f.label :name, "Service name", class: "block text-lg font-medium text-gray-700" %>
@@ -17,7 +20,8 @@
     </div>
 
     <%= render 'server_fields', f: %>
-    <%= render 'builder_fields', f:%>
-    <%= render 'registry_fields', f:%>
+    <%= render 'proxy_fields', f: %>
+    <%= render 'builder_fields', f: %>
+    <%= render 'registry_fields', f: %>
   </div>
 <% end %>

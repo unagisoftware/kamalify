@@ -1,23 +1,28 @@
-<fieldset class="mb-4 bg-gray-50 border border-gray-300 p-6 rounded-lg">
-  <legend class="block text-sm font-medium text-gray-700">
-    <span class="text-gray-700">Registry</span>
-  </legend>
+<p class="block text-2xl font-medium text-gray-700 mb-3">Registry</p> 
   
-  <div class="space-y-4">
-    <div class="flex gap-2 items-center">
-      <%= f.label :registry_username, "Username", class: "block font-medium text-gray-700" %>
-      <%= f.text_field :registry_username,
-        name: "registry[username]", 
-        placeholder: "Enter registry username",
-        class: "w-full px-4 py-2 border border-gray-300 text-base rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-gray-700 placeholder-gray-400 transition duration-200 mt-2" %>
-    </div>
-
-    <div class="flex gap-2 items-center">
-      <%= f.label :registry_password, "Password", class: "block font-medium text-gray-700" %>
-      <%= f.password_field :registry_password,
-        name: "registry[password]", 
-        placeholder: "Enter registry password",
-        class: "w-full px-4 py-2 border border-gray-300 text-base rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-gray-700 placeholder-gray-400 transition duration-200 mt-2" %>
-    </div>
+<div class="space-y-4 pl-2">
+  <div>
+    <%= f.label :registry_server, "Server", class: "block font-medium text-gray-700" %>
+    <%= f.text_field :registry_server,
+      name: "registry[server]", 
+      autocomplete: "off",
+      placeholder: "registry.mydomain.com",
+      class: "w-full px-4 py-2 border border-gray-300 text-base rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-gray-700 placeholder-gray-400 transition duration-200 mt-2" %>
   </div>
-</fieldset>
+  <div>
+    <%= f.label :registry_username, "Username", class: "block font-medium text-gray-700" %>
+    <%= f.text_field :registry_username,
+      name: "registry[username]", 
+      autocomplete: "off",
+      placeholder: "Enter registry username",
+      class: "w-full px-4 py-2 border border-gray-300 text-base rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-gray-700 placeholder-gray-400 transition duration-200 mt-2" %>
+  </div>
+  <div>
+    <%= f.label :registry_password, "Password env var name", class: "block font-medium text-gray-700" %>
+    <%= f.text_field :registry_password,
+      name: "registry[password]",
+      placeholder: "Enter registry password env var name",
+      autocomplete: "off",
+      class: "w-full px-4 py-2 border border-gray-300 text-base rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-gray-700 placeholder-gray-400 transition duration-200 mt-2" %>
+  </div>
+</div>
