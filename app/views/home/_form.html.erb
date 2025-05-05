@@ -1,27 +1,14 @@
-<%= form_with url: yaml_preview_path, method: :get, 
+<%= form_with url: yaml_preview_path, method: :get,
     data: { controller: "autosubmit", action: "input->autosubmit#submit", turbo_frame: "yaml_preview" },
     html: { autocomplete: "off" } do |f|
 %>
   <div class="border-b border-gray-900/10">
-    <div class="mb-4">
-      <%= f.label :name, "Service name", class: "block text-lg font-medium text-gray-700" %>
-      <p class="italic font-sm text-gray-500">What do you want the container name prefix to be?</p> 
-      <%= f.text_field :name,
-        placeholder: "your_service",
-        class: "w-full px-4 py-2 border border-gray-300 text-base rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-gray-700 placeholder-gray-400 transition duration-200 mt-2" %>
+    <div class="flex flex-col gap-10">
+      <%= render 'overview', f: %>
+      <%= render 'server_fields', f: %>
+      <%= render 'proxy_fields', f: %>
+      <%= render 'builder_fields', f: %>
+      <%= render 'registry_fields', f: %>
     </div>
-
-    <div class="mb-4">
-      <%= f.label :docker_image, "Docker image name", class: "block text-lg font-medium text-gray-700" %>
-      <p class="italic font-sm text-gray-500">What do you want the resulting image name to be?</p> 
-      <%= f.text_field :docker_image,
-        placeholder: "image/your_service",
-        class: "w-full px-4 py-2 border border-gray-300 text-base rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-gray-700 placeholder-gray-400 transition duration-200 mt-2" %>
-    </div>
-
-    <%= render 'server_fields', f: %>
-    <%= render 'proxy_fields', f: %>
-    <%= render 'builder_fields', f: %>
-    <%= render 'registry_fields', f: %>
   </div>
 <% end %>

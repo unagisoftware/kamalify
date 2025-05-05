@@ -13,6 +13,10 @@
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
@@ -23,10 +27,10 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-[#282c34]">
-    <main class="h-screen bg-gradient-to-r from-teal-400 to-blue-500 pt-4">
+  <body class="font-[Open_Sans] pb-8 bg-gray-100 font-judo text-gray-900">
+    <!--<main class="h-screen bg-gradient-to-r from-teal-400 to-blue-500 pt-4">-->
       <%= render 'layouts/navbar' %>
       <%= yield %>
-    </main>
+    <!--</main>-->
   </body>
 </html>

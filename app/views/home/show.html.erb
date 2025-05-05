@@ -1,20 +1,17 @@
-<div class="h-[calc(100vh-4rem)] grid grid-cols-2">
-  <div class="p-6 bg-white rounded-lg shadow-lg m-6 h-full relative">
+<div class="h-[calc(100vh-8rem)] grid grid-cols-2">
+  <div class="px-16 py-10 bg-white rounded-lg shadow-lg m-6 h-full relative overflow-auto">
     <h2 class="text-2xl font-bold">
       Let's kamalify your app!
     </h2>
-    <p class="text-gray-700 text-sm mb-4">
+    <p class="text-sm leading-relaxed text-gray-500 mb-8">
       Fill the form below to generate a Kamal configuration file for your application.
     </p>
 
     <%= render 'form' %>
 
-    <p class="absolute bottom-4 right-4 text-xs flex items-center">
-      <span> Made with ❤️ by <a href="https://unagisoftware.com" target="_blank" class="text-[#ff5e2c]">Unagi</a> </span>
-    </p>
   </div>
 
-  <div class="h-full bg-[#282c34] m-6 flex flex-col justify-between rounded-lg shadow-lg p-6">
+  <div class="h-full bg-[#282c34] m-6 flex flex-col justify-between rounded-lg shadow-lg p-6 overflow-auto">
     <%= turbo_frame_tag "yaml_preview", src: yaml_preview_path, loading: :lazy %>
 
     <div class="text-sm flex gap-5 justify-end">
@@ -23,3 +20,7 @@
     </div>
   </div>
 </div>
+
+<p class="absolute bottom-4 right-6 text-xs flex items-center">
+  <span> Made with ❤️ by <a href="https://unagisoftware.com" target="_blank" class="text-[#ff5e2c]">Unagi</a> </span>
+</p>
