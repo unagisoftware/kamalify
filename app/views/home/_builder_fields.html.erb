@@ -1,15 +1,26 @@
-<p class="block text-2xl font-medium text-gray-700 mt-3 mb-3">Builder</p> 
+<fieldset class="divide-y divide-gray-200">
+  <legend class="w-full text-2xl font-medium pt-1 pb-4 flex items-center gap-2">
+    Builder
+    <%= link_to '#', class: 'text-orange-600 hover:text-orange-90' do %>
+      <%= icon "external-link", library: 'feather', class: "w-4 h-4" %>
+    <% end %>
+  </legend>
 
-<div class="mb-4 pl-2">
-  <%= f.label :arch, "Architecture:", class: "block font-medium text-gray-700" %>
-  <%= f.select :arch, ["default", "amd64", "arm64"], {}, name: "builder[arch]", class: "bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" %>
-</div>
+  <div class="space-y-4 py-6">
+    <p class="text-sm leading-relaxed text-gray-500">The builder configuration controls how the application is built with docker build.</p>
 
-<div class="mb-4 pl-2">
-  <%= f.label :arch, "Remote:", class: "block font-medium text-gray-700" %>
-  <%= f.text_field :builder_remote,
-      name: "builder[remote]",
-      placeholder: "ssh://root@100.100.100.100",
-      class: "bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
-  %>
-</div>
+    <div>
+      <%= f.label :arch, "Architecture", class: "text-sm font-medium text-gray-900" %>
+      <%= f.select :arch, ["default", "amd64", "arm64"], {}, name: "builder[arch]", class: "bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" %>
+    </div>
+
+    <div>
+      <%= f.label :arch, "Remote", class: "text-sm font-medium text-gray-900" %>
+      <%= f.text_field :builder_remote,
+          name: "builder[remote]",
+          placeholder: "ssh://root@100.100.100.100",
+          class: "bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+      %>
+    </div>
+  </div>
+</fieldset>
