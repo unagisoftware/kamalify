@@ -28,21 +28,11 @@ RSpec.describe EnvConfig do
 
     context "when clear vars are provided" do
       let(:params) do
-        { clear: [ "FOO:bar" ] }
+        { clear: [ { key: "FOO", value: "bar" }, { key: "BAR", value: "foo" } ] }
       end
 
       it "returns the provided host" do
-        expect(subject).to include(clear: { "FOO" => "bar" })
-      end
-    end
-
-    context "when clear does not respect format" do
-      let(:params) do
-        { clear: [ "FOO=bar" ] }
-      end
-
-      it "returns the provided host" do
-        expect(subject).to include(clear: {})
+        expect(subject[:clear]).to eq [ { FOO: "bar" }, { BAR: "foo" } ]
       end
     end
   end

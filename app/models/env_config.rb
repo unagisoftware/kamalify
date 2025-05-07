@@ -13,21 +13,17 @@ class EnvConfig < BaseConfig
   def clear
     return if @params[:clear].blank?
 
-    @params[:clear].each_with_object({}) do |item, hash|
-      next if item.exclude?(":")
-
-      key, value = item.split(":", 2)
-      hash[key.strip] = value.strip
+    @params[:clear].map do |clear_env|
+      {
+        "#{clear_env[:key].upcase}": clear_env[:value]
+      }
     end
   end
 
   def secret
     items = @params[:secret]
 
-    items.presence && Array.wrap(items.compact_blank)
-  end
-
-  def vars_array(items)
+    items.presence && Array.wrap(items.map(&:upcase).compact_blank)
   end
 
   def defaults
