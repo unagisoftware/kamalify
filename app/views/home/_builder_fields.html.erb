@@ -2,25 +2,33 @@
   <legend class="w-full text-2xl font-medium pt-1 pb-4 flex items-center gap-2">
     Builder
     <%= link_to '#', class: 'text-orange-600 hover:text-orange-90' do %>
-      <%= icon "external-link", library: 'feather', class: "w-4 h-4" %>
+      <%= icon "arrow-top-right-on-square", class: "w-4 h-4" %>
     <% end %>
   </legend>
 
   <div class="space-y-4 py-6">
-    <p class="text-sm leading-relaxed text-gray-500">The builder configuration controls how the application is built with docker build.</p>
+    <p class="text-sm leading-relaxed text-gray-500">
+      This section defines how your Docker image is built before deployment. You can specify the target architecture (e.g., arm64 or amd64), and choose whether to build the image locally or on a remote server. This helps ensure your app runs correctly on your production hardware and simplifies cross-platform builds.
+    </p>
 
     <div>
-      <%= f.label :arch, "Architecture", class: "text-sm font-medium text-gray-900" %>
+      <%= f.label :arch, "Architecture", class: "text-lg font-medium text-gray-900" %>
+      <p class="text-sm leading-relaxed text-gray-500">
+        The CPU architecture to build your Docker image for, such as amd64 (Intel/AMD) or arm64 (Apple Silicon, newer servers). This ensures the image is compatible with the servers where it will be deployed.
+      </p>
       <%= f.select :arch, ["default", "amd64", "arm64"], {}, name: "builder[arch]", class: "bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" %>
     </div>
+  </div>
 
-    <div>
-      <%= f.label :arch, "Remote", class: "text-sm font-medium text-gray-900" %>
+  <div class="space-y-4 py-6">
+      <%= f.label :arch, "Remote", class: "text-lg font-medium text-gray-900" %>
+      <p class="text-sm leading-relaxed text-gray-500">
+        If enabled, the image will be built on a remote server instead of your local machine. This is useful when your local environment can't build for the target architecture, or when you want to avoid pushing large images over slow networks.
+      </p>
       <%= f.text_field :builder_remote,
           name: "builder[remote]",
           placeholder: "ssh://root@100.100.100.100",
           class: "bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
       %>
-    </div>
   </div>
 </fieldset>

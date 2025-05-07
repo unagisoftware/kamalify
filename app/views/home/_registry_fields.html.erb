@@ -2,12 +2,19 @@
   <legend class="w-full text-2xl font-medium pt-1 pb-4 flex items-center gap-2">
     Registry
     <%= link_to '#', class: 'text-orange-600 hover:text-orange-90' do %>
-      <%= icon "external-link", library: 'feather', class: "w-4 h-4" %>
+      <%= icon "arrow-top-right-on-square", class: "w-4 h-4" %>
     <% end %>
   </legend>
 
   <div class="space-y-4 py-6">
-    <%= f.label :registry_server, "Server", class: "text-sm font-medium text-gray-900" %>
+    <p class="text-sm leading-relaxed text-gray-500">
+      This section tells Kamal where to push your Docker image so it can be pulled by your servers during deployment. You can use a service like Docker Hub, GitHub Container Registry, or any private registry. Credentials are stored securely using environment variables.
+    </p>
+
+    <%= f.label :registry_server, "Server", class: "text-lg font-medium text-gray-900" %>
+    <p class="text-sm leading-relaxed text-gray-500">
+      The URL of your container registry (e.g., ghcr.io, index.docker.io for Docker Hub, or your own private registry domain). Kamal will push the image here so servers can pull it.
+    </p>
     <%= f.text_field :registry_server,
       name: "registry[server]",
       autocomplete: "off",
@@ -16,7 +23,10 @@
   </div>
 
   <div class="space-y-4 py-6">
-    <%= f.label :registry_username, "Username", class: "text-sm font-medium text-gray-900" %>
+    <%= f.label :registry_username, "Username", class: "text-lg font-medium text-gray-900" %>
+    <p class="text-sm leading-relaxed text-gray-500">
+      The username used to log in to your container registry. This is usually your Docker Hub or GitHub username.
+    </p>
     <%= f.text_field :registry_username,
       name: "registry[username]",
       autocomplete: "off",
@@ -25,7 +35,10 @@
   </div>
 
   <div class="space-y-4 py-6">
-    <%= f.label :registry_password, "Password env var name", class: "text-sm font-medium text-gray-900" %>
+    <%= f.label :registry_password, "Password env var name", class: "text-lg font-medium text-gray-900" %>
+    <p class="text-sm leading-relaxed text-gray-500">
+      The name of the environment variable that holds your registry password or access token (e.g., REGISTRY_PASSWORD). Kamal uses this to authenticate when pushing and pulling images.
+    </p>
     <%= f.text_field :registry_password,
       name: "registry[password]",
       placeholder: "Enter registry password env var name",

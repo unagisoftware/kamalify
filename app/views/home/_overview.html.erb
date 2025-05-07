@@ -2,23 +2,27 @@
   <legend class="w-full text-2xl font-medium pt-1 pb-4 flex items-center gap-2">
     Overview
     <%= link_to '#', class: 'text-orange-600 hover:text-orange-90' do %>
-      <%= icon "external-link", library: 'feather', class: "w-4 h-4" %>
+      <%= icon "arrow-top-right-on-square", class: "w-4 h-4" %>
     <% end %>
   </legend>
 
   <div class="space-y-4 py-6">
     <%= f.label :name, "Service name", class: "text-lg font-medium text-gray-900" %>
-    <p class="text-sm leading-relaxed text-gray-500">What do you want the container name prefix to be?</p>
+    <p class="text-sm leading-relaxed text-gray-500">
+      A short, unique name for your app or service. This name is used to label containers, logs, and other resources, so keep it lowercase and simple (e.g., myapp). It becomes part of hostnames like myapp-web-1.
+    </p>
     <%= f.text_field :name,
       placeholder: "your_service",
-      class: "w-full px-4 py-2 border border-gray-300 text-base rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-orange-300 focus:border-orange-300 text-gray-700 placeholder-gray-400" %>
+      class: "w-full px-4 py-2 border border-gray-300 text-base rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-orange-600 focus:border-orange-200 text-gray-700 placeholder-gray-400" %>
   </div>
 
   <div class="space-y-4 py-6">
     <%= f.label :docker_image, "Docker image name", class: "text-lg font-medium text-gray-900" %>
-    <p class="text-sm leading-relaxed text-gray-500">What do you want the resulting image name to be?</p>
+    <p class="text-sm leading-relaxed text-gray-500">
+      The Docker image that will be deployed to your servers. It should include the registry (if needed), your image name, and an optional tag (e.g., ghcr.io/your-org/myapp:latest). Kamal will pull this image and run it on your infrastructure.
+    </p>
     <%= f.text_field :docker_image,
       placeholder: "image/your_service",
-      class: "w-full px-4 py-2 border border-gray-300 text-base rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-orange-300 focus:border-orange-300 text-gray-700 placeholder-gray-400" %>
+      class: "w-full px-4 py-2 border border-gray-300 text-base rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-orange-600 focus:border-orange-200 text-gray-700 placeholder-gray-400" %>
   </div>
 </fieldset>

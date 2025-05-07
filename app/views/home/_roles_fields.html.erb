@@ -1,22 +1,17 @@
 <fieldset class="divide-y divide-gray-200">
   <div class="flex">
     <legend class="text-2xl font-medium pt-1 pb-4 flex items-center gap-2">
-      Roles
+      Servers
       <%= link_to '#', class: 'text-orange-600 hover:text-orange-90' do %>
-        <%= icon "arrow-top-right-on-square", class: "w-4 h-4" %>
+        <%= icon "external-link", class: "w-4 h-4" %>
       <% end %>
     </legend>
   </div>
 
   <div class="space-y-4 py-6">
+    <p class="text-lg font-medium text-gray-900 mb-0">Roles</p>
     <p class="text-sm leading-relaxed text-gray-500">
       Defines what this machine will do in your deployment. Common roles are web (handles HTTP requests), worker (background jobs), or db (database). A single server can have multiple roles (e.g., web,worker). Kamal uses this to organize your services.
-    </p>
-
-    <p class="text-lg font-medium text-gray-900 mb-0">Web</p>
-
-    <p class="text-sm leading-relaxed text-gray-500">
-      The server that will handle web traffic — it runs your app’s web process (like Puma or another HTTP server). Enter the IP address or hostname (e.g., 203.0.113.5 or web.myapp.com). Kamal will connect via SSH to this machine and deploy the web containers there.
     </p>
 
     <div class="flex gap-2 items-center">
@@ -25,7 +20,7 @@
         placeholder: "100.100.100.100",
         class: "w-full px-4 py-2 border border-gray-300 text-base rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-orange-300 focus:border-orange-300 text-gray-700 placeholder-gray-400" %>
     </div>
-    <p class="text-xs leading-relaxed text-gray-500">I.e 100.100.100.100, unagi.com.ar</p>
+    <p class="text-xs leading-relaxed text-gray-500">I.e 192.168.0.1, unagi.com.ar</p>
   </div>
 
   <div class="space-y-4 py-6">
@@ -40,9 +35,6 @@
     <div class="mt-4 space-y-3">
       <div>
         <%= f.label :servers_jobs_host, "Host", class: "text-sm font-medium text-gray-900" %>
-        <p class="text-sm leading-relaxed text-gray-500">
-          The server where background jobs will run. Use the IP address or hostname (e.g., 192.0.2.10 or jobs.myapp.com). This server must be accessible via SSH and should have Docker installed.
-        </p>
         <%= f.text_field :servers_jobs_host,
           name: "servers[jobs][host]",
           placeholder: "100.100.100.100",
@@ -51,9 +43,6 @@
 
       <div>
         <%= f.label :servers_jobs_cmd, "Cmd", class: "text-sm font-medium text-gray-900" %>
-        <p class="text-sm leading-relaxed text-gray-500">
-          The command to run your background jobs inside the container. For example, in a Rails app using Sidekiq, this might be bundle exec sidekiq. Kamal will use this command to start the worker process.
-        </p>
         <%= f.text_field :servers_jobs_cmd,
           placeholder: "bin/jobs",
           name: "servers[jobs][cmd]",

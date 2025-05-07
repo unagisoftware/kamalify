@@ -8,7 +8,7 @@ export default class extends Controller {
   }
 
   remove(event) {
-    const inputContainer = event.target.parentElement.parentElement
+    const inputContainer = event.currentTarget.parentElement
 
     inputContainer.remove()
   }

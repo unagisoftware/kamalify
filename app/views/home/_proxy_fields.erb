@@ -2,31 +2,34 @@
   <legend class="w-full text-2xl font-medium pt-1 pb-4 flex items-center gap-2">
     Proxy
     <%= link_to '#', class: 'text-orange-600 hover:text-orange-90' do %>
-      <%= icon "external-link", library: 'feather', class: "w-4 h-4" %>
+      <%= icon "arrow-top-right-on-square", class: "w-4 h-4" %>
     <% end %>
   </legend>
+
+  <div class="space-y-4 py-6">
+    <p class="text-sm leading-relaxed text-gray-500">
+      The proxy is the public entrypoint to your app. Kamal installs and configures a reverse proxy (like Traefik) on these hosts to handle incoming HTTP and HTTPS traffic. It routes requests to your web containers, handles SSL termination, and can load-balance between multiple web servers.
+    </p>
+
+    <%= f.label :app_port, "App port", class: "text-lg font-medium text-gray-900" %>
+    <p class="text-sm leading-relaxed text-gray-500">
+      The internal port your app listens on inside the container (e.g., 3000 for Rails with Puma). The proxy will forward incoming traffic to this port. Make sure it matches the port your app server is actually using.
+    </p>
+    <%= f.text_field :app_port,
+      name: "proxy[app_port]",
+      placeholder: "3000",
+      class: "w-full px-4 py-2 border border-gray-300 text-base rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-300 text-gray-700 placeholder-gray-400" %>
+  </div>
 
   <div class="space-y-4 py-6" data-controller="array-input"
          data-array-input-input-name-value="proxy[hosts][]"
          data-array-input-place-holder-value="Enter an IP or hostname">
 
-    <div>
-      <div class="flex items-center gap-2 mt-2">
-        <%= f.check_box :proxy_ssl_enabled, name: "proxy[ssl][enabled]", class: "h-5 w-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" %>
-        <%= f.label :proxy_ssl_enabled, "Enable SSL", class: "text-sm font-semibold text-gray-700" %>
-      </div>
-      <p class="text-sm leading-relaxed text-gray-500">kamal-proxy can provide automatic HTTPS for your application via Let’s Encrypt.</p>
-    </div>
+    <%= f.label :proxy_hosts, "Host/s", class: "text-lg font-medium text-gray-900" %>
+    <p class="text-sm leading-relaxed text-gray-500">
+      Public-facing servers that will receive incoming HTTP requests. These machines will run the reverse proxy (usually Traefik) that routes traffic to your web containers. Use IP addresses or domain names (e.g., 198.51.100.1 or app.example.com). Kamal installs and manages the proxy on these hosts.
+    </p>
 
-    <div>
-      <%= f.label :app_port, "App port", class: "text-sm font-medium text-gray-900" %>
-      <%= f.text_field :app_port,
-        name: "proxy[app_port]",
-        placeholder: "3000",
-        class: "w-full px-4 py-2 border border-gray-300 text-base rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-300 text-gray-700 placeholder-gray-400" %>
-    </div>
-
-    <%= f.label :proxy_hosts, "Host/s", class: "text-sm font-medium text-gray-900" %>
     <div data-array-input-target="container">
       <template data-array-input-target="template">
         <div class="flex items-center space-x-2 mt-2">
@@ -37,16 +40,27 @@
             class: "w-full px-4 py-2 border border-gray-300 text-base rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-300 focus:orange-indigo-300 text-gray-700 placeholder-gray-400"
           %>
           <button type="button" data-action="click->array-input#remove" class="text-sm font-semibold p-2 rounded-full text-black/70 cursor-pointer hover:bg-gray-200 active:bg-gray-300">
-            <%= icon "x", library: "feather", class: ["h-4", "w-4"] %>
+            <%= icon "x-mark", class: ["h-4", "w-4"] %>
           </button>
         </div>
       </template>
     </div>
+
     <div class="mt-2">
       <button type="button" data-action="click->array-input#add" class="text-sm font-semibold flex gap-1 items-center py-2 px-4 rounded-xl shadow-sm text-black/70 cursor-pointer bg-gray-100 hover:bg-gray-200 active:bg-gray-300">
-        <%= icon "plus", library: "feather", class: "w-4 h-4 text-gray-900" %>
+        <%= icon "plus", class: "w-4 h-4 text-gray-900" %>
         Add host
       </button>
     </div>
+  </div>
+
+  <div class="space-y-4 py-6">
+    <div class="flex items-center gap-2 mt-2">
+      <%= f.check_box :proxy_ssl_enabled, name: "proxy[ssl][enabled]", class: "h-5 w-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" %>
+      <%= f.label :proxy_ssl_enabled, "Enable SSL", class: "text-lg font-semibold text-gray-700" %>
+    </div>
+    <p class="text-sm leading-relaxed text-gray-500">
+      Check this to automatically enable HTTPS using Let's Encrypt. Kamal will configure the proxy to request and renew SSL certificates for your domain. Make sure your DNS is properly set up before enabling this.
+    </p>
   </div>
 </fieldset>
