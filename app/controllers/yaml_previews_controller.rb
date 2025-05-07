@@ -14,7 +14,8 @@ class YamlPreviewsController < ApplicationController
       builder: [ :arch, :remote ],
       proxy: [ :app_port, { hosts: [], ssl: [ :enabled ] } ],
       registry: [ :server, :username, :password ],
-      servers: [ :host, { jobs: [ :enabled, :host, :cmd ] } ]
+      servers: [ :host, { jobs: [ :enabled, :host, :cmd ] } ],
+      env: { clear: [ :key, :value ], secret: [] }
     )
   end
 end
