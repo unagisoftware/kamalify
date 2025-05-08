@@ -8,7 +8,7 @@
 
   <div class="space-y-4 py-6">
     <p class="text-sm leading-relaxed text-gray-500">
-      The proxy is the public entrypoint to your app. Kamal installs and configures a reverse proxy (like Traefik) on these hosts to handle incoming HTTP and HTTPS traffic. It routes requests to your web containers, handles SSL termination, and can load-balance between multiple web servers.
+      The proxy handles all incoming HTTP and HTTPS traffic to your application. Kamal installs and manages its own lightweight reverse proxy (kamal-proxy) on these hosts. It routes requests to your web containers, supports load balancing, and can automatically enable SSL using Let's Encrypt. These hosts act as the public-facing entry point for your app.
     </p>
 
     <%= f.label :app_port, "App port", class: "text-lg font-medium text-gray-900" %>
@@ -27,7 +27,7 @@
 
     <%= f.label :proxy_hosts, "Host/s", class: "text-lg font-medium text-gray-900" %>
     <p class="text-sm leading-relaxed text-gray-500">
-      Public-facing servers that will receive incoming HTTP requests. These machines will run the reverse proxy (usually Traefik) that routes traffic to your web containers. Use IP addresses or domain names (e.g., 198.51.100.1 or app.example.com). Kamal installs and manages the proxy on these hosts.
+      These are the servers where Kamal will install and run its built-in reverse proxy (kamal-proxy). They handle incoming web traffic and route it to your app’s web containers. These hosts act as your application's public entrypoints, and Kamal will use them to manage SSL, load balancing, and domain-based routing.
     </p>
 
     <div data-array-input-target="container">
