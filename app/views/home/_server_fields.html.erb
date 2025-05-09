@@ -34,10 +34,13 @@
 
     <div data-controller="toggler">
       <div class="flex items-center gap-2 mt-2">
-        <%= f.check_box :servers_jobs_enabled, name: "servers[jobs][enabled]",
-          data: { action: "toggler#toggle" },
-          class: "h-5 w-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" %>
-        <%= f.label :servers_jobs_enabled, "My app uses background jobs", class: "text-sm font-semibold text-gray-700" %>
+        <label class="switch">
+          <%= f.check_box :servers_jobs_enabled, name: "servers[jobs][enabled]",
+            data: { action: "toggler#toggle" },
+            class: "h-5 w-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" %>
+          <span class="slider round"></span>
+        </label>
+          <%= f.label :servers_jobs_enabled, "My app uses background jobs", class: "text-sm font-semibold text-gray-700" %>
       </div>
 
       <div class="mt-4 space-y-3 hidden" data-toggler-target="target">
