@@ -8,7 +8,7 @@
 
   <div class="space-y-4 py-6">
     <p class="text-sm leading-relaxed text-gray-500">
-      A short, unique name for your app or service. This name is used to label containers, logs, and other resources, so keep it lowercase and simple (e.g., myapp). It becomes part of hostnames like myapp-web-1.
+      Accessories are additional services your app depends on — like PostgreSQL, Redis, or Elasticsearch. Kamal will run each accessory in its own container, on the specified host, and manage them alongside your app. These containers are not exposed to the public; they’re meant to be accessed internally by your app. Accessories can have custom commands, environment variables, and volumes for data persistence.
     </p>
 
     <%= render 'postgres', f: %>

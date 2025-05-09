@@ -4,14 +4,13 @@
 %>
   <div class="border-b border-gray-900/10">
     <div class="flex flex-col gap-10">
-      <%= render 'accessories', f: %>
       <%= render 'overview', f: %>
       <%= render 'server_fields', f: %>
       <%= render 'proxy_fields', f: %>
       <%= render 'builder_fields', f: %>
       <%= render 'registry_fields', f: %>
       <%= render 'env_fields', f: %>
-
+      <%= render 'accessories', f: %>
     </div>
   </div>
 <% end %>
