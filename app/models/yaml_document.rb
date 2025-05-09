@@ -13,7 +13,8 @@ class YamlDocument
       proxy: ProxyConfig.new(@params.fetch(:proxy, {})).to_h,
       registry: RegistryConfig.new(@params.fetch(:registry, {})).to_h,
       builder: BuilderConfig.new(@params.fetch(:builder, {})).to_h,
-      env: EnvConfig.new(@params.fetch(:env, {})).to_h
+      env: EnvConfig.new(@params.fetch(:env, {})).to_h,
+      accessories: AccessoriesConfig.new(@params.fetch(:accessories, {})).to_h
     }
 
     raw_yaml = yaml_data.compact.deep_stringify_keys.to_yaml(indentation: 2)

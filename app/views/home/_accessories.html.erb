@@ -1,0 +1,17 @@
+<fieldset class="divide-y divide-gray-200">
+  <legend class="w-full text-2xl font-medium pt-1 pb-4 flex items-center gap-2">
+    Accessories
+    <%= link_to '#', class: 'text-orange-600 hover:text-orange-90' do %>
+      <%= icon "arrow-top-right-on-square", class: "w-4 h-4" %>
+    <% end %>
+  </legend>
+
+  <div class="space-y-4 py-6">
+    <p class="text-sm leading-relaxed text-gray-500">
+      A short, unique name for your app or service. This name is used to label containers, logs, and other resources, so keep it lowercase and simple (e.g., myapp). It becomes part of hostnames like myapp-web-1.
+    </p>
+
+    <%= render 'postgres', f: %>
+  </div>
+</fieldset>
+
