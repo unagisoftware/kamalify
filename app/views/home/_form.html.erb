@@ -1,7 +1,9 @@
 <%= form_with url: yaml_preview_path, method: :get,
-    data: { controller: "autosubmit", action: "input->autosubmit#submit", turbo_frame: "yaml_preview" },
+    data: { autosubmit_target: 'form', action: "input->autosubmit#submit", turbo_frame: "yaml_preview" },
     html: { autocomplete: "off" } do |f|
 %>
+  <input type="hidden" name="format" data-autosubmit-target="format" value="html">
+
   <div class="border-b border-gray-900/10">
     <div class="flex flex-col gap-10">
       <%= render 'overview', f: %>

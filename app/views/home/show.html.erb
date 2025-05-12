@@ -1,4 +1,4 @@
-<div class="md:h-[calc(100vh-8rem)] md:grid md:grid-cols-2">
+<div data-controller="autosubmit" class="md:h-[calc(100vh-8rem)] md:grid md:grid-cols-2">
   <div class="px-6 py-4 md:px-16 md:py-10 bg-white rounded-lg shadow-lg m-6 md:h-full relative md:overflow-auto">
     <h2 class="text-2xl font-bold">
       Let's kamalify your app!
@@ -8,17 +8,9 @@
     </p>
 
     <%= render 'form' %>
-
   </div>
 
-  <div class="h-full bg-[#282c34] m-6 flex flex-col justify-between rounded-lg shadow-lg p-6 overflow-auto">
-    <%= turbo_frame_tag "yaml_preview", src: yaml_preview_path, loading: :lazy %>
-
-    <div class="text-sm flex gap-5 justify-end">
-      <%= copy_button %>
-      <%= download_button %>
-    </div>
-  </div>
+  <%= turbo_frame_tag "yaml_preview", src: yaml_preview_path, loading: :lazy %>
 </div>
 
 <p class="w-full text-center md:w-fit md:absolute md:bottom-4 md:right-6 text-xs md:flex md:items-center">

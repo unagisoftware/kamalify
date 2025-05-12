@@ -36,7 +36,7 @@
       <div>
         <%= f.label :postgres_port, "Port", class: "text-sm font-medium text-gray-900" %>
         <p class="text-sm leading-relaxed text-gray-500">
-          The server where this accessory container will run. It should be a machine reachable by your app containers (often the same server or within the same network). Kamal will deploy the accessory here and manage its lifecycle.
+          The port inside the container where PostgreSQL will listen (default is 5432). This is used for internal communication between your app and the database. You usually don’t need to change it unless you have a specific reason.
         </p>
         <%= f.text_field :postgres_host,
           name: "accessories[postgres][port]",
