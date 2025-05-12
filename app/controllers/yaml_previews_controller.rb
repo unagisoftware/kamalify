@@ -17,7 +17,7 @@ class YamlPreviewsController < ApplicationController
       servers: [ :host, { jobs: [ :enabled, :host, :cmd ] } ],
       env: { clear: [ :key, :value ], secret: [] },
       accessories: {
-        postgres: [ :enabled, :host, :image ]
+        postgres: [ :enabled, :host, :image, :port ]
       }
     )
   end

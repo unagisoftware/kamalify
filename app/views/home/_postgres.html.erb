@@ -32,6 +32,17 @@
           placeholder: "100.100.100.100",
           class: "w-full px-4 py-2 border border-gray-300 text-base rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-orange-300 focus:border-orange-300 text-gray-700 placeholder-gray-400" %>
       </div>
+
+      <div>
+        <%= f.label :postgres_port, "Port", class: "text-sm font-medium text-gray-900" %>
+        <p class="text-sm leading-relaxed text-gray-500">
+          The server where this accessory container will run. It should be a machine reachable by your app containers (often the same server or within the same network). Kamal will deploy the accessory here and manage its lifecycle.
+        </p>
+        <%= f.text_field :postgres_host,
+          name: "accessories[postgres][port]",
+          placeholder: "5432",
+          class: "w-full px-4 py-2 border border-gray-300 text-base rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-orange-300 focus:border-orange-300 text-gray-700 placeholder-gray-400" %>
+      </div>
     </div>
   </div>
 </div>

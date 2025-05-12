@@ -33,7 +33,8 @@ RSpec.describe AccessoriesConfig do
             postgres: {
               enabled: "1",
               image: "postgres:15.2",
-              host: "10.0.0.1"
+              host: "10.0.0.1",
+              port: "5433"
             }
           }
         end
@@ -41,7 +42,7 @@ RSpec.describe AccessoriesConfig do
         it "returns postgres with image only" do
           expect(subject[:postgres]).to include({ image: "postgres:15.2", host: "10.0.0.1" })
           expect(subject[:postgres]).to include(
-            port: 5432,
+            port: '5433',
             env: {
               secret: [
                 "POSTGRES_USER",
