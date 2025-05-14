@@ -1,8 +1,8 @@
 module ApplicationHelper
   def copy_to_clipboard_btn(text)
-    tag.button class: 'flex gap-1 items-center text-gray-400 cursor-pointer hover:text-gray-200 relative',
+    tag.button class: "flex gap-1 items-center text-gray-400 cursor-pointer hover:text-gray-200 relative",
       data: {
-        controller: 'copy-to-clipboard', action: 'copy-to-clipboard#copy',
+        controller: "copy-to-clipboard", action: "copy-to-clipboard#copy",
         copy_to_clipboard_content_value: text
       } do
       concat icon("clipboard", class: "h-4 w-4")

@@ -19,7 +19,7 @@ class AccessoriesConfig < BaseConfig
     {
       image: @params.dig(:postgres, :image),
       host: @params.dig(:postgres, :host),
-      port: @params.dig(:postgres, :port).presence || '5432',
+      port: @params.dig(:postgres, :port).presence || "5432",
       env: {
         secret: [
           "POSTGRES_USER",
