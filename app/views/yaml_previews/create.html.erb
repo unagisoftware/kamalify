@@ -1,7 +1,14 @@
 <%= turbo_frame_tag 'yaml_preview' do %>
-  <div data-controller="highlight">
-    <pre class="px-4 py-0 overflow-auto">
-      <code data-highlight-target="code" class="yaml hljs"><%= @yaml_document.output %></code>
-    </pre>
+  <div class="h-full bg-[#282c34] m-6 flex flex-col justify-between rounded-lg shadow-lg p-6 overflow-auto">
+    <div data-controller="highlight">
+      <pre class="px-4 py-0 overflow-auto">
+        <code data-highlight-target="code" class="yaml hljs"><%= @yaml_document.output %></code>
+      </pre>
+    </div>
+
+    <div class="text-sm flex gap-5 justify-end">
+      <%= copy_to_clipboard_btn(@yaml_document.output) %>
+      <%= download_button %>
+    </div>
   </div>
 <% end %>
