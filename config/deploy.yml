@@ -4,7 +4,15 @@ image: unagi/kamalify
 
 servers:
   web:
-    - 5.161.220.205
+    - kamalify.unagisoftware.com
+
+builder:
+  arch: amd64
+  remote: ssh://root@137.184.208.6
+
+env:
+  secret:
+    - RAILS_MASTER_KEY
 
 proxy:
   ssl: true
@@ -22,9 +30,4 @@ aliases:
   logs: app logs -f
   dbc: app exec --interactive --reuse "bin/rails dbconsole"
 
-
 asset_path: /rails/public/assets
-
-builder:
-  arch: amd64
-  remote: ssh://root@137.184.208.6
