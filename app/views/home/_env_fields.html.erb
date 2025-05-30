@@ -23,13 +23,13 @@
             name: "env[clear][][key]",
             placeholder: "RAILS_SERVE_STATIC_FILES",
             data: { autosubmit_target: 'dynamicInput' },
-            class: "uppercase w-full px-4 py-2 border border-gray-300 text-base rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-300 focus:orange-indigo-300 text-gray-700 placeholder-gray-400"
+            class: "uppercase w-full px-4 py-2 border border-gray-300 text-base rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-orange-600 focus:border-orange-200 text-gray-700 placeholder-gray-400"
           %>
           <%= f.text_field :env_clear_value,
             name: "env[clear][][value]",
             placeholder: "true",
             data: { autosubmit_target: 'dynamicInput' },
-            class: "w-full px-4 py-2 border border-gray-300 text-base rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-300 focus:orange-indigo-300 text-gray-700 placeholder-gray-400"
+            class: "w-full px-4 py-2 border border-gray-300 text-base rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-orange-600 focus:border-orange-200 text-gray-700 placeholder-gray-400"
           %>
           <button type="button" data-action="click->array-input#remove" class="text-sm font-semibold p-2 rounded-full text-black/70 cursor-pointer hover:bg-gray-200 active:bg-gray-300">
             <%= icon "x-mark", class: ["h-4", "w-4"] %>
@@ -59,7 +59,7 @@
             name: "env[secret][]",
             placeholder: "Enter an environment variable",
             data: { autosubmit_target: 'dynamicInput' },
-            class: "uppercase w-full px-4 py-2 border border-gray-300 text-base rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-300 focus:orange-indigo-300 text-gray-700 placeholder-gray-400"
+            class: "uppercase w-full px-4 py-2 border border-gray-300 text-base rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-orange-600 focus:border-orange-200 text-gray-700 placeholder-gray-400"
           %>
           <button type="button" data-action="click->array-input#remove" class="text-sm font-semibold p-2 rounded-full text-black/70 cursor-pointer hover:bg-gray-200 active:bg-gray-300">
             <%= icon "x-mark", class: ["h-4", "w-4"] %>
