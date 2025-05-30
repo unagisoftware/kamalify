@@ -1,4 +1,10 @@
 module ApplicationHelper
+  def navbar_link(name, path)
+    active = request.path == path
+
+    link_to name, path, class: class_names('relative block px-3 py-2.5 transition', 'text-orange-600' => active)
+  end
+
   def copy_to_clipboard_btn(text)
     tag.button class: "flex gap-1 items-center text-gray-400 cursor-pointer hover:text-gray-200 relative",
       data: {

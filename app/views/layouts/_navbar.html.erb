@@ -12,17 +12,8 @@
             <div class="flex flex-1 justify-center">
               <nav class="pointer-events-auto md:block">
                 <ul class="flex rounded-full bg-white/90 px-3 text-sm font-medium text-gray-800 shadow-lg shadow-gray-800/5 ring-1 ring-gray-900/5 backdrop-blur">
-                  <li>
-                    <a href="/" class="relative block px-3 py-2.5 transition hover:text-primary-600 ">
-                      Home
-                    </a>
-                  </li>
-
-                  <li>
-                    <a href="/about" class="relative block px-3 py-2.5 transition hover:text-primary-600 ">
-                      About
-                    </a>
-                  </li>
+                  <li> <%= navbar_link "Home", root_path %> </li>
+                  <li> <%= navbar_link "About", about_path %> </li>
                 </ul>
               </nav>
 
