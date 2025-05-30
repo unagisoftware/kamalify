@@ -25,6 +25,10 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <% if Rails.env.development? %>
+      <%= render 'layouts/analytics' %>
+    <% end %>
   </head>
 
   <body class="font-[Open_Sans] pb-8 bg-gray-100 font-judo text-gray-900">
