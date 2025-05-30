@@ -1,6 +1,7 @@
 <%= turbo_frame_tag 'yaml_preview' do %>
-  <div class="h-full bg-[#282c34] m-6 flex flex-col justify-between rounded-lg shadow-lg p-6 overflow-auto">
-    <div data-controller="highlight">
+  <!--<div class="h-full bg-[#282c34] mt-6 mr-6 flex flex-col justify-between rounded-lg shadow-lg p-6 overflow-auto">-->
+  <div class="m-6 bg-[#282c34] h-full px-3 md:px-6 pb-6">
+    <div data-controller="highlight" class="h-full overflow-auto">
       <pre class="px-4 py-0 overflow-auto">
         <code data-highlight-target="code" class="yaml hljs"><%= @yaml_document.output %></code>
       </pre>

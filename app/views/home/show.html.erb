@@ -1,5 +1,5 @@
 <div data-controller="autosubmit" class="md:h-[calc(100vh-8rem)] md:grid md:grid-cols-2">
-  <div class="px-6 py-4 md:px-16 md:py-10 bg-white rounded-lg shadow-lg m-6 md:h-full relative md:overflow-auto">
+  <div class="px-6 py-4 md:px-16 md:py-10 bg-white rounded-lg shadow-lg m-6 mb-0 md:h-full relative md:overflow-auto">
     <h2 class="text-2xl font-bold">
       Let's kamalify your app!
     </h2>
@@ -10,7 +10,9 @@
     <%= render 'form' %>
   </div>
 
-  <%= turbo_frame_tag "yaml_preview", src: yaml_preview_path, loading: :lazy %>
+  <!--<div class="px-6 py-4 md:px-16 md:py-10 bg-[#282c34] rounded-lg shadow-lg m-6 md:h-full relative md:overflow-auto">-->
+  <%= turbo_frame_tag "yaml_preview", src: yaml_preview_path, loading: :lazy, class: 'py-4 md:py-10 bg-[#282c34] rounded-lg shadow-lg m-3 md:m-6 md:h-full relative md:overflow-auto' %>
+  <!--</div>-->
 </div>
 
 <p class="w-full text-center md:w-fit md:absolute md:bottom-4 md:right-6 text-xs md:flex md:items-center">
