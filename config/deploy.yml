@@ -16,7 +16,9 @@ env:
 
 proxy:
   ssl: true
-  host: kamalify.unagisoftware.com
+  hosts:
+    - kamalify.com
+    - www.kamalify.com
 
 registry:
   server: registry.unagi.com.ar
