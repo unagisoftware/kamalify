@@ -1,8 +1,13 @@
 # Kamalify
 
-Kamalify is a Ruby on Rails application that **helps developers create a working Kamal config by just filling out a form**. If you're just starting out with Kamal or want to set up a basic config quickly, it can save you time and headaches.
+[Kamalify](https://kamalify.com) is a Ruby on Rails application that **helps developers create a working Kamal config by just filling out a form**. If you're just starting out with Kamal or want to set up a basic config quickly, it can save you time and headaches.
 
 Let's kamalify your app! 🚀
+
+![kamlify](https://github.com/user-attachments/assets/67f7b9ca-554c-441c-b7ad-4e418d6edac0)
+
+You can fork this repo to run your own version, or head over to [https://kamalify.com](https://kamalify.com) to use it.
+
 
 ## Stack
 
