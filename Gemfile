@@ -10,7 +10,7 @@ gem "puma", ">= 5.0"
 gem "rails", "~> 8.0.1"
 gem "rails_icons", "~> 1.3.0"
 gem "stimulus-rails"
-gem "tailwindcss-rails", "~> 4.2"
+gem "tailwindcss-rails", "~> 4.3"
 gem "tailwindcss-ruby", "~> 4.1"
 gem "thruster", require: false
 gem "turbo-rails"
